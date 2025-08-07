@@ -1,0 +1,2 @@
+0 4 * * * root /usr/local/bin/renew-cert.sh >> /var/log/cron.log 2>&1
+

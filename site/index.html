@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DevOps Project Demo</title>
+  <link rel="icon" href="./favicon.ico" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Flowbite -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+
+  <!-- Tailwind Dark Mode Config -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class'
+    };
+  </script>
+
+  <!-- Theme Toggle Logic -->
+  <script>
+    const isDark = localStorage.theme === 'dark' ||
+      (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    if (isDark) document.documentElement.classList.add('dark');
+
+    function toggleTheme() {
+      const html = document.documentElement;
+      if (html.classList.contains('dark')) {
+        html.classList.remove('dark');
+        localStorage.theme = 'light';
+      } else {
+        html.classList.add('dark');
+        localStorage.theme = 'dark';
+      }
+    }
+  </script>
+</head>
+
+<body class="bg-white text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
+
+  <!-- Navbar -->
+  <header class="bg-white dark:bg-gray-800 shadow fixed w-full z-50">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+      <h1 class="text-xl font-bold text-gray-800 dark:text-gray-100">DevOps Demo Project</h1>
+      <nav class="space-x-4 text-sm hidden md:flex">
+        <a href="#features" class="hover:text-blue-600 dark:hover:text-blue-400">Features</a>
+        <a href="#portfolio" class="hover:text-blue-600 dark:hover:text-blue-400">Demo</a>
+        <a href="#contact" class="hover:text-blue-600 dark:hover:text-blue-400">Contact</a>
+      </nav>
+      <button onclick="toggleTheme()" class="ml-4 px-3 py-1 bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 rounded text-sm">
+        Toggle Theme
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="pt-32 pb-20 px-4 bg-white dark:bg-gray-900 text-center">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-4xl font-bold mb-4">Modern DevOps Deployment Example</h2>
+      <p class="text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
+        This project demonstrates a production-ready DevOps setup: automated deployments, HTTPS, reverse proxy, CI/CD, and modular frontend design.
+        Replace the content, connect your backend, and you're ready to go.
+      </p>
+      <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded transition">
+        Hire Me
+      </a>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section id="features" class="py-16 px-4 bg-gray-50 dark:bg-gray-800">
+    <div class="max-w-6xl mx-auto text-center">
+      <h3 class="text-2xl font-bold mb-8">Included Features</h3>
+      <div class="grid md:grid-cols-3 gap-6 text-left">
+        <div class="bg-white dark:bg-gray-900 shadow rounded p-6">
+          <h4 class="text-lg font-semibold mb-2">🔒 HTTPS & NGINX</h4>
+          <p class="text-gray-600 dark:text-gray-400">
+            Configured secure reverse proxy with SSL via Let's Encrypt and automatic renewal.
+          </p>
+        </div>
+        <div class="bg-white dark:bg-gray-900 shadow rounded p-6">
+          <h4 class="text-lg font-semibold mb-2">⚙️ CI/CD Pipeline</h4>
+          <p class="text-gray-600 dark:text-gray-400">
+            GitHub Actions setup for test, build, and deploy with Docker image publishing and SSH deploys.
+          </p>
+        </div>
+        <div class="bg-white dark:bg-gray-900 shadow rounded p-6">
+          <h4 class="text-lg font-semibold mb-2">📦 Docker & Compose</h4>
+          <p class="text-gray-600 dark:text-gray-400">
+            Fully containerized using Docker and Docker Compose, ready for staging and production environments.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Demo Portfolio -->
+  <section id="portfolio" class="py-16 px-4 bg-white dark:bg-gray-900">
+    <div class="max-w-6xl mx-auto text-center">
+      <h3 class="text-2xl font-bold mb-8">Demo Showcase</h3>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-gray-50 dark:bg-gray-800 p-5 rounded shadow">
+          <h4 class="text-lg font-semibold mb-2">Frontend Integration</h4>
+          <p class="text-sm text-gray-600 dark:text-gray-400">
+            Built with TailwindCSS, responsive and clean UI. Ready for React, Vue, or static use.
+          </p>
+        </div>
+        <div class="bg-gray-50 dark:bg-gray-800 p-5 rounded shadow">
+          <h4 class="text-lg font-semibold mb-2">DevOps Ready</h4>
+          <p class="text-sm text-gray-600 dark:text-gray-400">
+            Structure built to demonstrate professional infrastructure, not just frontend.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="py-16 px-4 bg-gray-50 dark:bg-gray-800">
+    <div class="max-w-2xl mx-auto text-center">
+      <h3 class="text-2xl font-bold mb-6">Interested?</h3>
+      <p class="text-gray-600 dark:text-gray-400 mb-4">This demo was deployed as a production-ready static site using Docker, NGINX, and Let’s Encrypt. Interested in a setup like this? Reach out below:</p>
+      <ul class="space-y-2 text-sm">
+        <li>Email: <a href="mailto:kirimov.suleiman@gmail.com" class="text-blue-600 hover:underline">kirimov.suleiman@gmail.com</a></li>
+        <li>Telegram: <a href="https://t.me/suleimank" class="text-blue-600 hover:underline">@suleimank</a></li>
+        <li>GitHub: <a href="https://github.com/Suleiman0212" class="text-blue-600 hover:underline">Suleiman0212</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-white dark:bg-gray-900 text-center py-6 text-sm text-gray-500 dark:text-gray-400">
+    This site is a placeholder/demo template for DevOps deployment.
+  </footer>
+
+</body>
+</html>
